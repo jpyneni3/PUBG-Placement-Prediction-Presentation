@@ -59,7 +59,7 @@ We aim to do this through the following steps:
 A visualization to show how each individual feature is correlated with the other features
 
 <p align="center">
-  <img src="https://github.gatech.edu/raw/vvijayakumar8/CS7641-Group6-PUBG/master/figures/heatmap.jpeg?token=AAACT772DEQWMI4BLPTW3H252RICS" width="500"/>
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/heatmap.jpeg" width="500"/>
 </p>
 
 The last column in the above matrix is the most important as it shows the correlation of each feature with our target variable winPlacePerc.
