@@ -74,6 +74,16 @@ REPLACE WITH IMAGE OF LAST COLUMN
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/heatmap.jpeg" width="500"/>
 </p>
 
+
+#### Feature Analysis
+From the heat map we can see that there is a high positive correlation between walkDistance and winPlacePerc. This is interesting and so let's explore the relationship of walkDistance and winPlacePerc
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg" width="500"/>
+</p>
+
+
+
 #### Scatter plots of Relations
 
 
