@@ -60,7 +60,7 @@ We aim to do this through the following steps:
 
 ### Visualization
 
-#### Correlation Heat Map
+#### Feature Analysis
 A visualization to show how each individual feature is correlated with the other features
 
 <p align="center">
@@ -69,20 +69,24 @@ A visualization to show how each individual feature is correlated with the other
 
 The last column in the above matrix is the most important as it shows the correlation of each feature with our target variable winPlacePerc.
 
-REPLACE WITH IMAGE OF LAST COLUMN
+
+From the heat map we can see that there is a high positive correlation between walkDistance and winPlacePerc. This is interesting and so let's explore the relationship of all types of traveling totalDistance = (walkDistance, rideDistance and swimDistance) and winPlacePerc.
+
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/heatmap.jpeg" width="500"/>
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_heatmap.jpeg" width="500"/>
 </p>
 
+We can see that there is high positive correlation between totalDistance and winPlacePerc as we saw for walkDistance and winPlacePerc.
 
-#### Feature Analysis
-From the heat map we can see that there is a high positive correlation between walkDistance and winPlacePerc. This is interesting and so let's explore the relationship of walkDistance and winPlacePerc
+Let's visualize the relation between walkDistance and winPlacePerc as well as totalDistance and winPlacePerc.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg" width="500"/>
 </p>
 
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg" width="500"/>
+</p>
 
 #### Scatter plots of Relations
 
