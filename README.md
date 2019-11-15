@@ -153,7 +153,7 @@ In the architecture, the size of the input layer is equal to the number of featu
 
 #### Hyperparameter Tuning
 
-### Number of Hidden Units
+##### Number of Hidden Units
 The first hyperparameter we tuned is the number of hidden units (size of the hidden layers). We used all powers of 2 in the range [2, 256] as the hidden unit size and modeled the data using the resulting neural networ. We measured the Mean Absolute Error (MAE) for each configuration and determined that the optimal value is achieved when there are 32 hidden units in the hidden layers. Below is a plot of the results:
 <p align="center">
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_hidden_units.jpeg" width="500"/>
@@ -161,10 +161,30 @@ The first hyperparameter we tuned is the number of hidden units (size of the hid
 
 We note above that when the number of hidden units is too small, the model is not complex enough to capture the patterns in the data, thus leading to underfitting and high prediction error. Similarly, when the number of hidden units is too large, the model overfits the data which also produces high prediction error. Thus 32 seems to be the optimal value for the number of hidden units and the error is minimized.
 
-### Learning Rate
+##### Learning Rate
 Another important hyperparameter in neural networks is the learning rate. The learning rate determines the step size along the gradient of the loss function at each iteration and as such impacts convergence. If the step size is too large, it is possible that we step over the minima and never reach it. If the step size is too small, then convergence might take extremely long and require multiple training iterations. When, the learning error was compared to the training loss, an optimal value of ~0.1 was observed as seen below:
 <p align="center">
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_lr.jpeg" width="500"/>
 </p>
 
+<<<<<<< HEAD
 ### Optimizer
+=======
+##### Optimizer
+We also tested model performance (with 32 hidden units and learning rate of 0.1 - the optimal values determined from above) using two different optimizers: SGD and Adam (a popular deep learning optimizing algorithm). Optimizers control update steps along the gradient curve and as such also affect convergence rates and convergence to minima. SGD gave us better performance as seen below.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_opt.jpeg" width="500"/>
+</p>
+
+### Results
+Using the optimal values for the hyperparameters determined above, we trained the model on the PUBG training dataset for 5 epochs. We ran the algorithm on the full dataset first and then on the dataset produced by the 2 dimension reduction methods mentioned above. The results we obtained are shown below:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_results.jpeg" width="500"/>
+</p>
+
+### Analysis
+We see that we get the best performance on the raw dataset (no dimensionality reduction applied). This is reasonable because neural networks perform better when there is more data and more information (features) about the data. While dimensionality reduction methods get rid of closely related features, neural networks by their very nature of being universal function approximators are able to create higher level non-linear representations of even closely related fearures, thus leading to better performance. This is one of the reasons that many experts claim that feature engineering and feature selection are not of high importance when using neural networks and so this result is not surprising. Meanwhile, we notice that both the dimensionality reduction methods perform approximately the same with neural networks and that there is not a huge difference between the two different methods.
+
+A note on the error function being used here: we are using MAE because the goal of this regression task is to output a percentile prediction for the finish position of a particular player. As such, we only care about how off we are from the true placement and not which direction we are off in. Hence, we made the choice of using MAE to measure performance. The Kaggle competition from where this dataset was obtained also uses MAE measure performance.
+>>>>>>> 6a199f5035f9673ce3d6fbf0ec6d4fbc61c833d4
