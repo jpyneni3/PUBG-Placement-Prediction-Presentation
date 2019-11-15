@@ -82,7 +82,7 @@ Let's visualize the positve relation between walkDistance and winPlacePerc as we
 
 walkDistance vs winPlacePerc |  totalTravelDistance vs winPlacePerc
 :-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg){:height="50%" width="50%"}  |  ![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg){:height="50%" width="50%"}
+![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg) |  ![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg)
 
 
 The heatmap also shows a strong correlation between boosts and winPlacePerc. A graph of the central tendency of the two should help us get a better visual understanding of this relationship.
