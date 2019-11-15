@@ -171,24 +171,20 @@ Another important hyperparameter in neural networks is the learning rate. The le
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_lr.jpeg" width="500"/>
 </p>
 
-<<<<<<< HEAD
-### Optimizer
-=======
 ##### Optimizer
 We also tested model performance (with 32 hidden units and learning rate of 0.1 - the optimal values determined from above) using two different optimizers: SGD and Adam (a popular deep learning optimizing algorithm). Optimizers control update steps along the gradient curve and as such also affect convergence rates and convergence to minima. SGD gave us better performance as seen below.
 <p align="center">
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_opt.jpeg" width="500"/>
 </p>
 
-### Results
+##### Results
 Using the optimal values for the hyperparameters determined above, we trained the model on the PUBG training dataset for 5 epochs. We ran the algorithm on the full dataset first and then on the dataset produced by the 2 dimension reduction methods mentioned above. The results we obtained are shown below:
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_results.jpeg" width="500"/>
 </p>
 
-### Analysis
+##### Analysis
 We see that we get the best performance on the raw dataset (no dimensionality reduction applied). This is reasonable because neural networks perform better when there is more data and more information (features) about the data. While dimensionality reduction methods get rid of closely related features, neural networks by their very nature of being universal function approximators are able to create higher level non-linear representations of even closely related fearures, thus leading to better performance. This is one of the reasons that many experts claim that feature engineering and feature selection are not of high importance when using neural networks and so this result is not surprising. Meanwhile, we notice that both the dimensionality reduction methods perform approximately the same with neural networks and that there is not a huge difference between the two different methods.
 
 A note on the error function being used here: we are using MAE because the goal of this regression task is to output a percentile prediction for the finish position of a particular player. As such, we only care about how off we are from the true placement and not which direction we are off in. Hence, we made the choice of using MAE to measure performance. The Kaggle competition from where this dataset was obtained also uses MAE measure performance.
->>>>>>> 6a199f5035f9673ce3d6fbf0ec6d4fbc61c833d4
