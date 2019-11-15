@@ -91,4 +91,36 @@ Let's visualize the relation between walkDistance and winPlacePerc as well as to
 #### Scatter plots of Relations
 
 
-# 3.Pre-processing
+# 3. Pre-processing
+
+# 4. Modeling, Experimenting & Results
+
+### a. XGBoost
+
+### b. Neural Network
+
+#### Architecture
+We used a feedforward neural network with an input layer (fully connected to first hidden layer), 2 fully connected hidden layers and and an output layer to model the data and make a prediction for final PUBG placement. Below is an overview of the architecture used:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_architecture.jpeg" width="500"/>
+</p>
+
+In the architecture, the size of the input layer is equal to the number of features in the input (size of the input vector) and the output layer has size 1 since we are outputting a single placement prediction. However, the size of the hidden layers is an important hyperparameter in neural networks that can be tuned. We experimented with different hidden layer sizes. In addition, we also ran extensive tests to determine optimal values for several other hyperparameters. Below we present an explanation of our approach for tuning different hyperparameters and the results used to determine optimal values.
+
+#### Hyperparameter Tuning
+
+### Number of Hidden Units
+The first hyperparameter we tuned is the number of hidden units (size of the hidden layers). We used all powers of 2 in the range [2, 256] as the hidden unit size and modeled the data using the resulting neural networ. We measured the Mean Absolute Error (MAE) for each configuration and determined that the optimal value is achieved when there are 32 hidden units in the hidden layers. Below is a plot of the results:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_hidden_units.jpeg" width="500"/>
+</p>
+
+We note above that when the number of hidden units is too small, the model is not complex enough to capture the patterns in the data, thus leading to underfitting and high prediction error. Similarly, when the number of hidden units is too large, the model overfits the data which also produces high prediction error. Thus 32 seems to be the optimal value for the number of hidden units and the error is minimized.
+
+### Learning Rate
+Another important hyperparameter in neural networks is the learning rate. The learning rate determines the step size along the gradient of the loss function at each iteration and as such impacts convergence. If the step size is too large, it is possible that we step over the minima and never reach it. If the step size is too small, then convergence might take extremely long and require multiple training iterations. When, the learning error was compared to the training loss, an optimal value of ~0.1 was observed as seen below:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/NN_lr.jpeg" width="500"/>
+</p>
+
+### Optimizer
