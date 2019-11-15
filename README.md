@@ -82,7 +82,7 @@ Let's visualize the positve relation between walkDistance and winPlacePerc as we
 
 walkDistance vs winPlacePerc |  totalTravelDistance vs winPlacePerc
 :-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg) |  ![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg)
+![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg){:height="50%" width="50%"}  |  ![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg){:height="50%" width="50%"}
 
 
 The heatmap also shows a strong correlation between boosts and winPlacePerc. A graph of the central tendency of the two should help us get a better visual understanding of this relationship.
@@ -105,10 +105,16 @@ Based off my experience with the game, I know that people that can destroy vehic
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/Vehicle_Dest_vs_wins.jpeg" width="500"/>
 </p>
 
-#### Scatter plots of Relations
-
 
 # 3.Pre-processing
+
+Based off the above visualizations, we can see that certain features definitely give us a lot of information while others provide no input in terms of our target variable. We can choose to manually take out these features that do not seem to be providing any information but we can use dimensionality reduction algorithms later to do that for us.
+
+As such, we will preprocess the data like this:
+1. remove presumed irrelevant features: Id, groupId
+2. One-hot encode match type: solo (one player), duo (1-2 players), or squad (team)
+3. Drop all rows with NaNs
+4. Split into train and test such that no instances of same match are in both test and train.
 
 ## Dimensionality Reduction
 We considered two dimensionality reduction methods to reduce the size of our feature space to avoid the Curse of Dimensionality. After one hot encoding our match type during preprocessing, we had 40 features.
