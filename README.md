@@ -7,7 +7,7 @@
 </p>
 
 # 1. Overview
-PUBG is a battle-royale video game where 100 players battle on a game map by rummaging for weapons and tools and fighting until there is only one surviving player or team. Inititally a Kaggle competition, the purpose of this project is to predict the final placement of a given player based off of game stats. This is an interesting project for our group because it is a game we all love to play. We hope to utilize the data modeling skills we learned this semester in CS 7641 to optimize our chance of winning our future matches.
+PUBG is a battle-royale video game where 100 players battle on a game map by rummaging for weapons and tools and fighting until there is only one surviving player or team. Initially a Kaggle competition, the purpose of this project is to predict the final placement of a given player based off of game stats. This is an interesting project for our group because it is a game we all love to play. We hope that by applying the skills we learned this semester in CS 7641, we can learn the best way to maximize our chances of winning our future matches.
 
 We aim to do this through the following steps:
 1. Explore the data
@@ -76,16 +76,36 @@ From the heat map we can see that there is a high positive correlation between w
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_heatmap.jpeg" width="500"/>
 </p>
 
-We can see that there is high positive correlation between totalDistance and winPlacePerc as we saw for walkDistance and winPlacePerc.
+We can see that there is high positive correlation between totalTravelDistance and winPlacePerc as we saw for walkDistance and winPlacePerc.
 
-Let's visualize the relation between walkDistance and winPlacePerc as well as totalDistance and winPlacePerc.
+Let's visualize the positve relation between walkDistance and winPlacePerc as well as totalTravelDistance and winPlacePerc.
 
+walkDistance vs winPlacePerc |  totalTravelDistance vs winPlacePerc
+:-------------------------:|:-------------------------:
+![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg)  |  ![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg)
+
+
+The heatmap also shows a strong correlation between boosts and winPlacePerc. A graph of the central tendency of the two should help us get a better visual understanding of this relationship.
+
+# trying to get rid of extras in graph
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg" width="500"/>
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/BoostvWin.jpeg" width="500"/>
 </p>
 
+
+Similarly, there is a relatively high correlation with weaponsAcquired and winPlacePerc.
+
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg" width="500"/>
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/weaponsvswinplaceperc.jpeg" width="500"/>
+</p>
+
+
+Based off my experience with the game, I know that people that can destroy vehicles tend to be better players.
+
+INSERT vehicle destroys VS WINPLACE PERC
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/Vehicle_Dest_vs_wins.jpeg" width="500"/>
 </p>
 
 #### Scatter plots of Relations
