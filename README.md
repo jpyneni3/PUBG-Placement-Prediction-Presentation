@@ -90,8 +90,32 @@ Let's visualize the relation between walkDistance and winPlacePerc as well as to
 
 #### Scatter plots of Relations
 
+# 3.Pre-processing
 
-# 3. Pre-processing
+## Dimensionality Reduction
+We considered two dimensionality reduction methods to reduce the size of our feature space to avoid the Curse of Dimensionality. After one hot encoding our match type during preprocessing, we had 40 features.
+
+### Principal Component Analysis
+The first dimensionality reduction method we used is PCA. PCA aims to convert a large set of features to a smaller set of uncorrelated features. The below graph plots the proportion of variance to the number of principal components.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/pcaVsVariance.png" width="500"/>
+</p>
+
+As we can see from the above graph, we were able to recover 99% of the variance by using ~34 principal components.
+
+### Random Projection
+The other dimensionality reduction method we're using is random projection, specifically, Gaussian. In random projection, we convert the high-dimensional feature space to a lower-dimensional feature space such that the distances between the data points is conserved. In Gaussian random projection, the matrix used is generated using a Gaussian distribution. To pick the number of components used in this Gaussian Random Projection, we split the training data set into a training and validation set, and trained our model on the feature spaces modified by the random projection, using 2 to 40 components. After this, we tested the model's performance on the validation set, and plotted the RMSE and MAE.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/RMSE_GRP.png" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/MAE_GRP.png" width="500"/>
+</p>
+
+Looking at these graphs and the error values, we see that the error evens out at 34 components.
 
 # 4. Modeling, Experimenting & Results
 
