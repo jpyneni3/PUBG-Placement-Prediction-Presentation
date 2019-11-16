@@ -7,7 +7,10 @@
 </p>
 
 # 1. Overview
-PUBG is a battle-royale video game where 100 players battle on a game map by rummaging for weapons and tools and fighting until there is only one surviving player or team. Initially a Kaggle competition, the purpose of this project is to predict the final placement of a given player based off of game stats. This is an interesting project for our group because it is a game we all love to play. We hope that by applying the skills we learned this semester in CS 7641, we can learn the best way to maximize our chances of winning our future matches.
+PUBG is a battle-royale video game where 100 players battle on a game map by rummaging for weapons and tools and fighting until there is only one surviving player or team. Initially a Kaggle competition, the purpose of this project is to predict the final placement of a given player based off of game stats. This is an interesting project for our group because it is a game we all love to play. We hope that by applying the skills we learned this semester in CS 7641, we can learn the best way to maximize our chances of winning our future matches.  So far, winning has been determined by starting randomly and employing different in-game tactics, but by doing this project, we can learn with ML how to win.
+
+
+We feel that we can solve our problem by verifying that our data is valuable and are confident in the techniques we learned this semester to find that value. Instead of individually getting better at various in-game tactics, we hope to build a prediction engine that can tell us how likely a given tactic is to win so we can test out our ideas and focus on winning.  
 
 We aim to do this through the following steps:
 1. Explore the data
@@ -108,13 +111,15 @@ Based off my experience with the game, I know that people that can destroy vehic
 
 # 3.Pre-processing
 
-Based off the above visualizations, we can see that certain features definitely give us a lot of information while others provide no input in terms of our target variable. We can choose to manually take out these features that do not seem to be providing any information but we can use dimensionality reduction algorithms later to do that for us.
+Based off the above visualizations, we can see that certain features definitely give us a lot of information while others provide no input in terms of our target variable. This allows us to have a basis for using the data and also shows that the data we have is indeed valuable data. This means the next step is deriving the actual value from that data.
 
 As such, we will preprocess the data like this:
 1. remove presumed irrelevant features: Id, groupId
 2. One-hot encode match type: solo (one player), duo (1-2 players), or squad (team)
 3. Drop all rows with NaNs
 4. Split into train and test such that no instances of same match are in both test and train.
+
+ We can choose to manually take out those features that do not seem to be providing any information but we can use dimensionality reduction algorithms to do that for us.
 
 ## Dimensionality Reduction
 We considered two dimensionality reduction methods to reduce the size of our feature space to avoid the Curse of Dimensionality. After one hot encoding our match type during preprocessing, we had 40 features.
