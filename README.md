@@ -171,6 +171,16 @@ We analyzed the model after performing dimensionality reduction through PCA and 
 - RMSE:  0.12955
 - MAE: 0.09740
 
+The error and training time for each pre-processing can be seen in the graphs below
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/pre_err.png" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/times.png" width="500"/>
+</p>
+
 ##### After Random Projection
 We also analyzed model performance after performing the random projection algorithm, yielding:
 - Time elapsed for training: 77.40 s
