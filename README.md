@@ -83,10 +83,15 @@ We can see that there is high positive correlation between totalTravelDistance a
 
 Let's visualize the positve relation between walkDistance and winPlacePerc as well as totalTravelDistance and winPlacePerc.
 
-walkDistance vs winPlacePerc |  totalTravelDistance vs winPlacePerc
-:-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg){:height="50%" width="50%"}  |  ![](https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg){:height="50%" width="50%"}
+###### walkDistance vs winPlacePerc
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg" width="500"/>
+</p>
 
+###### totalTravelDistance vs winPlacePerc
+p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg" width="500"/>
+</p>
 
 The heatmap also shows a strong correlation between boosts and winPlacePerc. A graph of the central tendency of the two should help us get a better visual understanding of this relationship.
 
@@ -150,7 +155,7 @@ Looking at these graphs and the error values, we see that the error evens out at
 
 
 ### a. Gradient Boosting
-We used gradient boosting as one of our supervised learning models. Like other boosting methods, gradient boosting combines weak learners to form a stronger and more accurate model. Recently, they have become very popular among Kaggle contestants due to its performance. Here, we used the XGBoost implementation, which follows the principles of gradient boosting but introduces regularization to reduce overfitting and improve performance. 
+We used gradient boosting as one of our supervised learning models. Like other boosting methods, gradient boosting combines weak learners to form a stronger and more accurate model. Recently, they have become very popular among Kaggle contestants due to its performance. Here, we used the XGBoost implementation, which follows the principles of gradient boosting but introduces regularization to reduce overfitting and improve performance.
 
 #### Model Performance
 In order to get a better notion of the quality of our model and the effectiveness of our feature engineering, we tested the model on several distinct variations of the dataset.
@@ -163,7 +168,7 @@ The default decision tree weak learner and squared loss were used to train the m
 - RMSE: 0.09612
 - MAE: 0.06894
 
-The Mean Absolute Error (MAE) was the metric used in the Kaggle competition to evaluate contestants. 
+The Mean Absolute Error (MAE) was the metric used in the Kaggle competition to evaluate contestants.
 
 ##### After PCA
 We analyzed the model after performing dimensionality reduction through PCA and obtained the following results:
@@ -194,7 +199,7 @@ The XGBoost algorithm contains several hyperparameters which change the behavior
 Boosting methods work by combining various weak learners to form a more powerful model. The XGBoost implementation used has access to 3 different types of weak learners: linear, decision tree and dart.
 
 ###### Tree Booster
-The tree booster uses decision trees as weak learners. It is the most common approach with the XGBoost algorithm. The model performance was given earlier, as we used it to analyze the different feature engineering techniques. 
+The tree booster uses decision trees as weak learners. It is the most common approach with the XGBoost algorithm. The model performance was given earlier, as we used it to analyze the different feature engineering techniques.
 
 ###### Linear Booster
 The linear booster uses linear functions as its weak learners.  We obtained the following results:
@@ -222,7 +227,7 @@ As stated earlier, the tree booster combines decision trees to form its ultimate
 #### Analysis
 We see that the best performance was observed on non pre-processed data, both in terms of faster training and lower error. This may be explained from the fact that XGBoost is known to work well with data that hasn't gone through any modification.
 
-Out of all 3 boosters tested, the one with best performance used simple decision trees as weak learners. The dart booster had very similar results, since it also uses trees, but may have added unnecessary complexity to the model, leading to slightly worse results. The linear model was much worse, and in general isn't too common in gradient boosting. This may be because it is an oversimplified model, as its scope is only linear predictors. 
+Out of all 3 boosters tested, the one with best performance used simple decision trees as weak learners. The dart booster had very similar results, since it also uses trees, but may have added unnecessary complexity to the model, leading to slightly worse results. The linear model was much worse, and in general isn't too common in gradient boosting. This may be because it is an oversimplified model, as its scope is only linear predictors.
 
 For the maximum tree depth tuning, we see that the best value was at around 12. For lower values, the weak learners may be too simple to fit the data. It is also evident that after around a depth of 15, the errors start increasing, which is the result of overfitting due to the high complexity of the model
 
