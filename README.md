@@ -273,7 +273,7 @@ A note on the error function being used here: we are using MAE because the goal 
 ### Conclusion
 
 ### References
-Howley, T., Madden, M. G., O’Connell, M.-L., & Ryder, A. G. (2006). The Effect of Principal Component Analysis on Machine Learning Accuracy with High Dimensional Spectral Data. Applications and Innovations in Intelligent Systems XIII, 209–222. doi: 10.1007/1-84628-224-1_16
-Tharwat, A., Gaber, T., Ibrahim, A., & Hassanien, A. E. (2017). Linear discriminant analysis: A detailed tutorial. AI Communications, 30(2), 169–190. doi: 10.3233/aic-170729
-Hornik, K., Stinchcombe, M. B., & White, H. (1989). Multilayer feedforward networks are universal approximators. Neural Networks, 2(5), 359-366. doi: 10.1016/0893-6080(89)90020-8
-Friedman, J. H. "Greedy Function Approximation: A Gradient Boosting Machine." (Feb. 1999a)
+1. Howley, T., Madden, M. G., O’Connell, M.-L., & Ryder, A. G. (2006). The Effect of Principal Component Analysis on Machine Learning Accuracy with High Dimensional Spectral Data. Applications and Innovations in Intelligent Systems XIII, 209–222. doi: 10.1007/1-84628-224-1_16
+2. Tharwat, A., Gaber, T., Ibrahim, A., & Hassanien, A. E. (2017). Linear discriminant analysis: A detailed tutorial. AI Communications, 30(2), 169–190. doi: 10.3233/aic-170729
+3. Hornik, K., Stinchcombe, M. B., & White, H. (1989). Multilayer feedforward networks are universal approximators. Neural Networks, 2(5), 359-366. doi: 10.1016/0893-6080(89)90020-8
+4. Friedman, J. H. "Greedy Function Approximation: A Gradient Boosting Machine." (Feb. 1999a)
