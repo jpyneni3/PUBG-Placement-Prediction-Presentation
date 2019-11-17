@@ -109,7 +109,7 @@ Based off my experience with the game, I know that people that can destroy vehic
 </p>
 
 
-# 3.Pre-processing
+# 3. Pre-processing
 
 Based off the above visualizations, we can see that certain features definitely give us a lot of information while others provide no input in terms of our target variable. This allows us to have a basis for using the data and also shows that the data we have is indeed valuable data. This means the next step is deriving the actual value from that data.
 
@@ -148,7 +148,67 @@ Looking at these graphs and the error values, we see that the error evens out at
 
 # 4. Modeling, Experimenting & Results
 
-### a. XGBoost
+
+### a. Gradient Boosting
+We used gradient boosting as one of our supervised learning models. Like other boosting methods, gradient boosting combines weak learners to form a stronger and more accurate model. Recently, they have become very popular among Kaggle contestants due to its performance. Here, we used the XGBoost implementation, which follows the principles of gradient boosting but introduces regularization to reduce overfitting and improve performance. 
+
+#### Model Performance
+In order to get a better notion of the quality of our model and the effectiveness of our feature engineering, we tested the model on several distinct variations of the dataset.
+
+##### Before Data Pre-processing
+Prior to any dimensionality reduction, we trained our model on the raw data. Due to the nature of XGBoost, it does not handle categorical features, so we removed the features Id, groupId, matchId and matchType. In order to not include any match in both the test and train sets, we performed the test/train split based on matchId. In particular, all data points belonging to a specific matchId would be entirely in either the test or train datasets, where the train split contained approximately 90% of the data.
+
+The default decision tree weak learner and squared loss were used to train the model, and results were the following:
+- Time elapsed for training: 52.32 s
+- RMSE: 0.09612
+- MAE: 0.06894
+
+The Mean Absolute Error (MAE) was the metric used in the Kaggle competition to evaluate contestants. 
+
+##### After PCA
+We analyzed the model after performing dimensionality reduction through PCA and obtained the following results:
+- Time elapsed for training: 76.54 s
+- RMSE:  0.12955
+- MAE: 0.09740
+
+##### After Random Projection
+We also analyzed model performance after performing the random projection algorithm, yielding:
+- Time elapsed for training: 77.40 s
+- RMSE:  0.13181
+- MAE: 0.09844
+
+#### Hyperparameter Tuning
+The XGBoost algorithm contains several hyperparameters which change the behavior of the model. We tuned 2 of the most important ones, comparing the errors yielded in each case. We used the raw dataset (without any dimensionality reduction or extensive pre-processing) to train the models, since it yielded the best results.
+
+##### Weak Learners
+Boosting methods work by combining various weak learners to form a more powerful model. The XGBoost implementation used has access to 3 different types of weak learners: linear, decision tree and dart.
+
+###### Tree Booster
+The tree booster uses decision trees as weak learners. It is the most common approach with the XGBoost algorithm. The model performance was given earlier, as we used it to analyze the different feature engineering techniques. 
+
+###### Linear Booster
+The linear booster uses linear functions as its weak learners.  We obtained the following results:
+- RMSE:  0.14517
+- MAE: 0.11261
+
+###### Dart Booster
+The dart booster uses trees as weak learners, but unlike the regular tree booster, it assigns higher weights to trees added earlier. Results obtained were:
+- RMSE:  0.09612
+- MAE: 0.06894
+
+##### Maximum Tree Depth
+As stated earlier, the tree booster combines decision trees to form its ultimate model. As a result, one of its parameters is the maximum height of each tree. Since this booster yielded the lowest error, we decided to tune this hyperparameter to obtain the best model. Below is a graph of the MAE/RMSE errors as we increase the maximum tree depth input.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/tree_depth_errs.png" width="500"/>
+</p>
+
+#### Analysis
+We see that the best performance was observed on non pre-processed data, both in terms of faster training and lower error. This may be explained from the fact that XGBoost is known to work well with data that hasn't gone through any modification.
+
+Out of all 3 boosters tested, the one with best performance used simple decision trees as weak learners. The dart booster had very similar results, since it also uses trees, but may have added unnecessary complexity to the model, leading to slightly worse results. The linear model was much worse, and in general isn't too common in gradient boosting. This may be because it is an oversimplified model, as its scope is only linear predictors. 
+
+For the maximum tree depth tuning, we see that the best value was at around 12. For lower values, the weak learners may be too simple to fit the data. It is also evident that after around a depth of 15, the errors start increasing, which is the result of overfitting due to the high complexity of the model
 
 ### b. Neural Network
 
