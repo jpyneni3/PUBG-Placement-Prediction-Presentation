@@ -269,3 +269,11 @@ Using the optimal values for the hyperparameters determined above, we trained th
 We see that we get the best performance on the raw dataset (no dimensionality reduction applied). This is reasonable because neural networks perform better when there is more data and more information (features) about the data. While dimensionality reduction methods get rid of closely related features, neural networks by their very nature of being universal function approximators are able to create higher level non-linear representations of even closely related fearures, thus leading to better performance. This is one of the reasons that many experts claim that feature engineering and feature selection are not of high importance when using neural networks and so this result is not surprising. Meanwhile, we notice that both the dimensionality reduction methods perform approximately the same with neural networks and that there is not a huge difference between the two different methods.
 
 A note on the error function being used here: we are using MAE because the goal of this regression task is to output a percentile prediction for the finish position of a particular player. As such, we only care about how off we are from the true placement and not which direction we are off in. Hence, we made the choice of using MAE to measure performance. The Kaggle competition from where this dataset was obtained also uses MAE measure performance.
+
+### Conclusion
+
+### References
+Howley, T., Madden, M. G., O’Connell, M.-L., & Ryder, A. G. (2006). The Effect of Principal Component Analysis on Machine Learning Accuracy with High Dimensional Spectral Data. Applications and Innovations in Intelligent Systems XIII, 209–222. doi: 10.1007/1-84628-224-1_16
+Tharwat, A., Gaber, T., Ibrahim, A., & Hassanien, A. E. (2017). Linear discriminant analysis: A detailed tutorial. AI Communications, 30(2), 169–190. doi: 10.3233/aic-170729
+Hornik, K., Stinchcombe, M. B., & White, H. (1989). Multilayer feedforward networks are universal approximators. Neural Networks, 2(5), 359-366. doi: 10.1016/0893-6080(89)90020-8
+Friedman, J. H. "Greedy Function Approximation: A Gradient Boosting Machine." (Feb. 1999a)
