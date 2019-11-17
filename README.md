@@ -171,6 +171,12 @@ We analyzed the model after performing dimensionality reduction through PCA and 
 - RMSE:  0.12955
 - MAE: 0.09740
 
+##### After Random Projection
+We also analyzed model performance after performing the random projection algorithm, yielding:
+- Time elapsed for training: 77.40 s
+- RMSE:  0.13181
+- MAE: 0.09844
+
 The error and training time for each pre-processing can be seen in the graphs below
 
 <p align="center">
@@ -180,12 +186,6 @@ The error and training time for each pre-processing can be seen in the graphs be
 <p align="center">
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/times.png" width="500"/>
 </p>
-
-##### After Random Projection
-We also analyzed model performance after performing the random projection algorithm, yielding:
-- Time elapsed for training: 77.40 s
-- RMSE:  0.13181
-- MAE: 0.09844
 
 #### Hyperparameter Tuning
 The XGBoost algorithm contains several hyperparameters which change the behavior of the model. We tuned 2 of the most important ones, comparing the errors yielded in each case. We used the raw dataset (without any dimensionality reduction or extensive pre-processing) to train the models, since it yielded the best results.
