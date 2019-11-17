@@ -83,13 +83,13 @@ We can see that there is high positive correlation between totalTravelDistance a
 
 Let's visualize the positve relation between walkDistance and winPlacePerc as well as totalTravelDistance and winPlacePerc.
 
-###### walkDistance vs winPlacePerc
+##### walkDistance vs winPlacePerc
 <p align="center">
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/walk_to_win.jpeg" width="500"/>
 </p>
 
-###### totalTravelDistance vs winPlacePerc
-p align="center">
+##### totalTravelDistance vs winPlacePerc
+<p align="center">
   <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/travel_to_win.jpeg" width="500"/>
 </p>
 
