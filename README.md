@@ -193,8 +193,14 @@ The linear booster uses linear functions as its weak learners.  We obtained the 
 
 ###### Dart Booster
 The dart booster uses trees as weak learners, but unlike the regular tree booster, it assigns higher weights to trees added earlier. Results obtained were:
-- RMSE:  0.09612
-- MAE: 0.06894
+- RMSE:  0.09713
+- MAE: 0.06955
+
+The error of each booster can be visualized in the graph below.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/boosters_errs.png" width="500"/>
+</p>
 
 ##### Maximum Tree Depth
 As stated earlier, the tree booster combines decision trees to form its ultimate model. As a result, one of its parameters is the maximum height of each tree. Since this booster yielded the lowest error, we decided to tune this hyperparameter to obtain the best model. Below is a graph of the MAE/RMSE errors as we increase the maximum tree depth input.
