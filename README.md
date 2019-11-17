@@ -199,7 +199,7 @@ The dart booster uses trees as weak learners, but unlike the regular tree booste
 The error of each booster can be visualized in the graph below.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/boosters_errs.png" width="500"/>
+  <img src="https://raw.githubusercontent.com/jpyneni3/PUBG-Placement-Prediction-Presentation/master/Images/boosters_err.png" width="500"/>
 </p>
 
 ##### Maximum Tree Depth
